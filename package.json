@@ -1,0 +1,24 @@
+{
+  "name": "inventory-management-system",
+  "version": "1.0.0",
+  "description": "Full-Stack Inventory Management System (React + Node.js/Express + MongoDB)",
+  "scripts": {
+    "start": "npm start --prefix backend",
+    "server": "npm start --prefix backend",
+    "client": "npm run dev --prefix frontend",
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "db:seed": "npm run db:seed --prefix backend",
+    "install:all": "npm install --prefix backend; npm install --prefix frontend"
+  },
+  "keywords": [
+    "inventory",
+    "react",
+    "express",
+    "mongodb",
+    "mongoose",
+    "full-stack"
+  ],
+  "author": "",
+  "license": "ISC"
+}

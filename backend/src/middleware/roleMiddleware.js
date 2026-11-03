@@ -1,0 +1,29 @@
+/**
+ * Role-Based Access Control (RBAC) Middleware
+ * Restricts route access to specified roles: ADMIN, MANAGER, EMPLOYEE
+ * 
+ * @param  {...string} allowedRoles 
+ */
+const authorizeRole = (...allowedRoles) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({
+        success: false,
+        message: 'Authentication required before verifying role.'
+      });
+    }
+
+    if (!allowedRoles.includes(req.user.role)) {
+      return res.status(403).json({
+        success: false,
+        message: `Forbidden. Role '${req.user.role}' is not authorized to access this resource. Required roles: ${allowedRoles.join(', ')}`
+      });
+    }
+
+    next();
+  };
+};
+
+module.exports = {
+  authorizeRole
+};
